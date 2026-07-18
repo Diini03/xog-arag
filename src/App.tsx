@@ -6,22 +6,10 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ThemeProvider } from "@/components/common/ThemeProvider";
 import { AuthProvider } from "@/hooks/useAuth";
 
-import { AppShell } from "@/components/layout/AppShell";
-
-
+import Home from "@/pages/Home";
+import Editor from "@/pages/Editor";
 import Login from "@/pages/Login";
 import Register from "@/pages/Register";
-import Dashboard from "@/pages/Dashboard";
-import Datasets from "@/pages/Datasets";
-import DatasetNew from "@/pages/DatasetNew";
-import DatasetDetails from "@/pages/DatasetDetails";
-import Analytics from "@/pages/Analytics";
-import Reports from "@/pages/Reports";
-import Dashboards from "@/pages/Dashboards";
-import Visualizations from "@/pages/Visualizations";
-import Notifications from "@/pages/Notifications";
-import Settings from "@/pages/Settings";
-import Profile from "@/pages/Profile";
 import NotFound from "@/pages/NotFound";
 
 const queryClient = new QueryClient({
@@ -37,25 +25,11 @@ const App = () => (
         <BrowserRouter>
           <AuthProvider>
             <Routes>
-              <Route path="/" element={<Navigate to="/dashboard" replace />} />
+              <Route path="/" element={<Home />} />
+              <Route path="/editor/:id" element={<Editor />} />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
-
-              <Route element={<AppShell />}>
-                <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="/datasets" element={<Datasets />} />
-                <Route path="/datasets/new" element={<DatasetNew />} />
-                <Route path="/datasets/:id" element={<DatasetDetails />} />
-                <Route path="/analytics" element={<Analytics />} />
-                <Route path="/reports" element={<Reports />} />
-                <Route path="/dashboards" element={<Dashboards />} />
-                <Route path="/visualizations" element={<Visualizations />} />
-                <Route path="/notifications" element={<Notifications />} />
-                <Route path="/settings" element={<Settings />} />
-                <Route path="/profile" element={<Profile />} />
-              </Route>
-
-              <Route path="/app" element={<Navigate to="/dashboard" replace />} />
+              <Route path="/dashboard" element={<Navigate to="/" replace />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </AuthProvider>
