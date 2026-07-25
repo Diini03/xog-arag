@@ -14,7 +14,7 @@ Whether you are tracking revenue, monitoring customer cohorts, or comparing regi
 
 ---
 
-## What XogArag Does
+## What XogArag Does?
 
 XogArag helps analysts, managers, founders, and operations teams make data-driven decisions faster. The platform ingests CSV and Excel files, automatically profiles the uploaded data, scores its quality, and surfaces KPIs, trends, and anomalies through a clean visual interface.
 
@@ -22,7 +22,7 @@ It is designed for organizations that outgrow spreadsheets but do not want the o
 
 ---
 
-## Who It Is For
+## Who It Is For?
 
 - Startup founders who need quick visibility into revenue, customers, and growth.
 - Analysts who want to clean and explore datasets without SQL.
@@ -31,7 +31,7 @@ It is designed for organizations that outgrow spreadsheets but do not want the o
 
 ---
 
-## Key Features
+## Key Features!
 
 - **Executive Dashboards** — A unified view of the metrics that matter most to your business.
 - **KPI Cards** — Track revenue, customer count, average order value, growth rate, and custom targets at a glance.
@@ -48,7 +48,7 @@ It is designed for organizations that outgrow spreadsheets but do not want the o
 
 ---
 
-## Tech Stack
+## Tech Stack!
 
 ### Frontend
 
