@@ -1,6 +1,6 @@
 # XogArag
 
-> See the story behind your data.
+> See the story behind your data....
 
 XogArag is a modern Business Intelligence platform built for teams that want to turn raw data into clear, actionable decisions. It combines an intuitive spreadsheet-like upload experience with automated data profiling, AI-generated summaries, interactive dashboards, and executive-ready reports.
 
