@@ -8,7 +8,6 @@ Whether you are tracking revenue, monitoring customer cohorts, or comparing regi
 
 ---
 
-## Preview
 
 ![XogArag Preview](public/preview.png)
 
