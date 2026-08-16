@@ -31,14 +31,6 @@ export const LABS: LabMeta[] = [
     tags: ["normal", "gaussian", "standard deviation", "probability"],
   },
   {
-    id: "sampling",
-    title: "Sampling Lab",
-    description: "Draw repeated samples from a skewed population and watch the sampling distribution turn normal.",
-    category: "statistics",
-    difficulty: "intermediate",
-    tags: ["central limit theorem", "sample size", "standard error"],
-  },
-  {
     id: "outliers",
     title: "Outlier Lab",
     description: "Compare z-score and IQR rules on the same data and see which points each method flags.",
@@ -47,28 +39,12 @@ export const LABS: LabMeta[] = [
     tags: ["outliers", "iqr", "z-score", "cleaning"],
   },
   {
-    id: "kmeans",
-    title: "K-Means Lab",
-    description: "Step through k-means one iteration at a time and watch centroids move to convergence.",
-    category: "ml",
-    difficulty: "intermediate",
-    tags: ["clustering", "kmeans", "unsupervised", "centroids"],
-  },
-  {
     id: "confusion",
     title: "Confusion Matrix Lab",
     description: "Move the decision threshold and see precision, recall and F1 trade against each other in real time.",
     category: "ml",
     difficulty: "intermediate",
     tags: ["precision", "recall", "threshold", "classification", "f1"],
-  },
-  {
-    id: "abtest",
-    title: "A/B Testing Lab",
-    description: "Set conversion rates and sample size, then see the observed lift, interval and how often you would be fooled.",
-    category: "statistics",
-    difficulty: "advanced",
-    tags: ["ab test", "experiment", "significance", "power"],
   },
 ];
 
@@ -104,14 +80,6 @@ export const GAMES: GameMeta[] = [
     category: "programming",
     difficulty: "intermediate",
     rounds: 8,
-  },
-  {
-    id: "data-or-noise",
-    title: "Data or Noise?",
-    description: "Two series. One has a real trend, one is a random walk. Pick the real one.",
-    category: "statistics",
-    difficulty: "advanced",
-    rounds: 6,
   },
 ];
 

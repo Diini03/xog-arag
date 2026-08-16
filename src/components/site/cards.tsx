@@ -6,9 +6,10 @@ import { Kicker, SourceLink } from "@/components/site/kind";
 import { useBookmarks } from "@/lib/local";
 import { cn } from "@/lib/utils";
 
-export function Panel({ className, children, tone }: { className?: string; children: React.ReactNode; tone?: string }) {
+export function Panel({ className, children, tone, id }: { className?: string; children: React.ReactNode; tone?: string; id?: string }) {
   return (
     <section
+      id={id}
       className={cn("relative rounded-lg border border-border bg-card p-5 sm:p-6", className)}
       style={tone ? { boxShadow: `inset 3px 0 0 0 ${tone}` } : undefined}
     >
