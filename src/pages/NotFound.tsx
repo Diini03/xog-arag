@@ -1,27 +1,23 @@
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { Home, ArrowLeft } from "lucide-react";
-import { LogoLockup } from "@/components/common/Logo";
+import { Layout } from "@/components/site/Layout";
 
 export default function NotFound() {
   return (
-    <div className="min-h-dvh flex items-center justify-center bg-gradient-hero p-4">
-      <div className="text-center max-w-md">
-        <div className="flex justify-center mb-8">
-          <LogoLockup size={36} wordmarkClassName="text-xl" />
-        </div>
-        <div className="text-7xl font-bold text-gradient mb-2 tracking-tight">404</div>
-        <h1 className="text-2xl font-semibold mb-2">Page not found</h1>
-        <p className="text-muted-foreground mb-8">The page you're looking for doesn't exist or has been moved.</p>
-        <div className="flex gap-2 justify-center">
-          <Button variant="outline" asChild>
-            <Link to="/dashboard"><ArrowLeft className="h-4 w-4 mr-2" />Go to dashboard</Link>
-          </Button>
-          <Button asChild>
-            <Link to="/"><Home className="h-4 w-4 mr-2" />Back to home</Link>
-          </Button>
+    <Layout>
+      <div className="mx-auto max-w-xl py-16 text-center">
+        <div className="font-mono text-[12px] uppercase tracking-[0.18em] text-muted-foreground">404</div>
+        <h1 className="mt-3 font-display text-[clamp(2rem,6vw,3.25rem)] font-extrabold leading-[0.98]">
+          Nothing here. Yet.
+        </h1>
+        <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
+          That page does not exist. The interesting stuff is one click away.
+        </p>
+        <div className="mt-7 flex flex-wrap justify-center gap-2">
+          <Link to="/" className="rounded-md bg-primary px-4 py-2 text-[14px] font-semibold text-primary-foreground">Home</Link>
+          <Link to="/today" className="rounded-md border border-border px-4 py-2 text-[14px] font-semibold">Today's picks</Link>
+          <Link to="/labs" className="rounded-md border border-border px-4 py-2 text-[14px] font-semibold">Labs</Link>
         </div>
       </div>
-    </div>
+    </Layout>
   );
 }

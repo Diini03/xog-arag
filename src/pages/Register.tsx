@@ -6,7 +6,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
 import { Loader2 } from "lucide-react";
-import { LogoLockup } from "@/components/common/Logo";
+import { LogoMark, Wordmark } from "@/components/common/Logo";
 import { toast } from "sonner";
 
 export default function Register() {
@@ -23,20 +23,20 @@ export default function Register() {
     const { error } = await supabase.auth.signUp({
       email, password,
       options: {
-        emailRedirectTo: `${window.location.origin}/dashboard`,
+        emailRedirectTo: `${window.location.origin}/`,
         data: { full_name: name },
       },
     });
     setLoading(false);
     if (error) return toast.error(error.message);
     toast.success("Account created! Welcome to XogArag.");
-    nav("/dashboard");
+    nav("/");
   };
 
   const onGoogle = async () => {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: "google",
-      options: { redirectTo: `${window.location.origin}/dashboard` },
+      options: { redirectTo: `${window.location.origin}/` },
     });
     if (error) toast.error(error.message);
   };
@@ -45,7 +45,7 @@ export default function Register() {
     <div className="min-h-dvh flex items-center justify-center bg-gradient-hero p-4">
       <div className="w-full max-w-md">
         <Link to="/" className="flex justify-center mb-8" aria-label="XogArag home">
-          <LogoLockup size={36} wordmarkClassName="text-xl" />
+          <span className="flex items-center gap-2"><LogoMark size={32} /><Wordmark className="text-xl" /></span>
         </Link>
         <Card className="shadow-elevated border-2">
           <CardContent className="p-8">

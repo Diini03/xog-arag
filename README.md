@@ -1,165 +1,90 @@
 # XogArag
 
-> See the story behind your data.
+XogArag is an interactive discovery platform for data, AI and technology. It is not a dashboard and not a course. It is a place to visit out of curiosity: one interesting idea at a time, presented with large typography, a dark-first interface and things you can actually touch.
 
-XogArag is a modern Business Intelligence platform built for teams that want to turn raw data into clear, actionable decisions. It combines an intuitive spreadsheet-like upload experience with automated data profiling, AI-generated summaries, interactive dashboards, and executive-ready reports.
+![XogArag preview](public/preview.png)
 
-Whether you are tracking revenue, monitoring customer cohorts, or comparing regional performance, XogArag gives you a single workspace to explore, visualize, and share insights without writing SQL or setting up complex infrastructure.
+## What it is
 
----
+Every day the site surfaces a small, deliberate set of content: a quote, a practical tip, a fact, a concept and a question. Alongside that sit interactive labs that let you manipulate a statistic and watch it respond, short games that test intuition rather than memory, and a curated news feed where every story keeps its original publication and link.
 
+## Sections
 
-![XogArag Preview](public/preview.png)
+- **Home** — an asymmetric discovery board with today's picks and entry points into everything else.
+- **Today** — the deterministic daily set: quote, tip, fact, concept and question. The same for everyone on a given day.
+- **Explore** — the full library, filterable by kind and by category.
+- **Labs** — five educational simulations: Correlation, Regression, Distribution, Outliers and the Confusion Matrix.
+- **Games** — Guess the Correlation, Spot the Outlier, Which Chart? and the Concept Challenge quiz.
+- **News** — curated stories with publication, author, date and a short note on why each one matters.
+- **Saved** — bookmarks kept locally on your device.
+- **About** — the editorial rules behind the content.
 
----
+## Content rules
 
-## What XogArag Does?
+Quotes are either attributed with a verifiable source or presented as original XogArag thoughts, never falsely attributed. Facts and news items carry a publication and a link. Labs are educational simulations and are labelled as such, not production models. Nothing invents a claim of fact.
 
-XogArag helps analysts, managers, founders, and operations teams make data-driven decisions faster. The platform ingests CSV and Excel files, automatically profiles the uploaded data, scores its quality, and surfaces KPIs, trends, and anomalies through a clean visual interface.
+## Interactive labs
 
-It is designed for organizations that outgrow spreadsheets but do not want the overhead of enterprise BI tools. Everything is accessible from the browser, works on desktop and mobile, and supports both light and dark modes.
+Each lab renders with a lightweight custom SVG plotting layer rather than a chart library, so the simulations stay fast and fully controllable.
 
----
+| Lab | What you manipulate | What you learn |
+| --- | --- | --- |
+| Correlation | correlation strength, noise | how a point cloud becomes a line |
+| Regression | slope, intercept, noise | least-squares fit, residuals, R² |
+| Distribution | mean, standard deviation | area under the normal curve |
+| Outliers | data spread and extremes | z-score versus IQR flagging |
+| Confusion Matrix | decision threshold | precision, recall and F1 trade-offs |
 
-## Who It Is For?
+## Tech stack
 
-- Startup founders who need quick visibility into revenue, customers, and growth.
-- Analysts who want to clean and explore datasets without SQL.
-- Managers who need dashboards and reports they can share with stakeholders.
-- NGOs and small organizations that want to move from spreadsheets to structured reporting.
+- React 18 with TypeScript and Vite
+- Tailwind CSS and shadcn/ui components
+- React Router for routing, TanStack Query for async state
+- Bricolage Grotesque for display type, Inter Tight for body text
+- Lovable Cloud (PostgreSQL, authentication, edge functions) for optional accounts
+- Local storage for bookmarks, scores and history — no account required
 
----
+## Design
 
-## Key Features!
+The interface is dark-first, built on a midnight palette with electric orange, mint, violet, data blue and AI purple as semantic accents. There is no sidebar and no admin chrome. Typography carries the hierarchy, motion is used sparingly, and every page is readable on a phone.
 
-- **Executive Dashboards** — A unified view of the metrics that matter most to your business.
-- **KPI Cards** — Track revenue, customer count, average order value, growth rate, and custom targets at a glance.
-- **Revenue Analysis** — Understand how revenue changes over time, by product, region, or channel.
-- **Customer Analytics** — Segment customers, identify cohorts, and measure retention and churn.
-- **Product Performance** — Compare product lines, spot top performers, and identify underperforming SKUs.
-- **Regional Insights** — Slice metrics by geography and uncover location-based trends.
-- **Interactive Filters** — Drill into data by date, category, region, or any custom dimension.
-- **Report Builder** — Generate and export polished PDF, Excel, and CSV reports.
-- **Forecasting** — Project future trends based on historical patterns.
-- **Export Reports** — Share reports with teammates or external stakeholders in one click.
-- **Dark Mode** — A full dark theme for comfortable analysis in low-light environments.
-- **Responsive Design** — Works on laptops, tablets, and phones without losing functionality.
-
----
-
-## Tech Stack!
-
-### Frontend
-
-The user interface is built with a modern React stack focused on performance, accessibility, and consistent design.
-
-- **React** — Component-based UI library for building interactive interfaces.
-- **TypeScript** — Strongly typed JavaScript that reduces runtime errors and improves maintainability.
-- **Tailwind CSS** — Utility-first CSS framework for rapid, consistent styling.
-- **shadcn/ui** — Accessible, composable UI primitives built on Tailwind and Radix.
-
-### Backend
-
-- **FastAPI** — High-performance Python framework for building REST APIs and handling data processing.
-
-### Data & Analytics
-
-- **Pandas** — Data manipulation, cleaning, and transformation.
-- **NumPy** — Numerical computing and statistical operations.
-- **Recharts** — Composable React charting library for dashboards and visualizations.
-
-### Deployment
-
-- **Vercel** — Frontend hosting and continuous deployment.
-
----
-
-## Architecture
-
-Data flows through XogArag in a simple pipeline:
-
-Upload
-
-↓
-
-Processing
-
-↓
-
-Analytics Engine
-
-↓
-
-Business Insights
-
-↓
-
-Reports
-
-↓
-
-Export
-
-Users upload a file, the platform parses and profiles it, runs analytics and AI summaries, and then presents the results in dashboards and reports that can be exported and shared.
-
----
-
-## Project Structure
-
-The codebase is organized into focused directories:
-
-```text
-frontend/        — React application, pages, layouts, and shared UI
-backend/         — FastAPI server, data processing, and business logic
-components/      — Reusable UI components and sections
-charts/          — Chart components and visualization utilities
-services/        — API clients, data processing services, and integrations
-hooks/           — Custom React hooks for state, data fetching, and UI behavior
-```
-
----
-
-## Installation
-
-Clone the repository, install dependencies, and start the development server.
+## Running locally
 
 ```bash
-git clone https://github.com/Diini03/xog-arag.git
-cd xog-arag
+git clone <repository-url>
+cd xogarag
 npm install
 npm run dev
 ```
 
-After the server starts, open the local URL printed in the terminal to view the application.
+The development server starts on port 8080.
 
----
+```bash
+npm run build     # production build
+npm run preview   # preview the production build
+```
 
-## Roadmap
+## Project structure
 
-Planned features and improvements include:
+```
+src/
+  components/
+    common/    theme provider, logo, theme toggle
+    site/      layout, navigation, footer, search dialog, cards
+    labs/      the five interactive labs and the SVG plot helper
+    games/     the four games
+    ui/        shadcn primitives
+  lib/
+    content/   quotes, tips, facts, questions, news, catalog and types
+    daily.ts   deterministic per-day content selection
+    local.ts   bookmarks, scores and history in local storage
+  pages/       Home, Today, Explore, Labs, Games, News, Saved, About, auth, 404
+```
 
-- AI-generated insights and natural-language summaries.
-- Team dashboards with shared views and permissions.
-- Scheduled reports delivered by email.
-- Email alerts for metric thresholds and anomalies.
-- Forecasting improvements with confidence intervals.
-- Dashboard sharing with public or password-protected links.
+## Accounts
 
----
-
-## Security
-
-- Authentication protects access to datasets, dashboards, and reports.
-- Secure file uploads with validation and size limits.
-- Input validation on all API endpoints and file parsers.
-- Protected APIs that require a valid session.
-
----
+Accounts are optional. Sign-in exists for syncing saved items across devices; the entire site works without one, and progress is kept on the device by default.
 
 ## License
 
-MIT
-
----
-
-Built with care by Diini Kahiye
+MIT.
