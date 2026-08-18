@@ -46,6 +46,24 @@ export type Database = {
           },
         ]
       }
+      daily_drops: {
+        Row: {
+          created_at: string
+          day: string
+          payload: Json
+        }
+        Insert: {
+          created_at?: string
+          day: string
+          payload: Json
+        }
+        Update: {
+          created_at?: string
+          day?: string
+          payload?: Json
+        }
+        Relationships: []
+      }
       dashboards: {
         Row: {
           created_at: string
