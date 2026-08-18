@@ -1,1 +1,4 @@
 project_id = "lmdghjeagnodkniczquf"
+
+[functions.daily-brief]
+verify_jwt = false
