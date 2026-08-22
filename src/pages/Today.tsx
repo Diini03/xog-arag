@@ -9,6 +9,7 @@ import { CHALLENGES, QUESTIONS } from "@/lib/content/questions";
 import { CURATED_NEWS } from "@/lib/content/news";
 import { GAMES, LABS } from "@/lib/content/catalog";
 import { pickDaily, todayKey } from "@/lib/daily";
+import { DailyDrop } from "@/components/site/DailyDrop";
 
 export default function Today() {
   const day = todayKey();
@@ -22,6 +23,7 @@ export default function Today() {
         title="Today"
         lede="One quote, one tip, one fact, one question, one challenge, one concept, one story. It changes at midnight UTC and it is the same for everyone."
       />
+      <div className="mb-10"><DailyDrop /></div>
       <div className="grid gap-5 lg:grid-cols-12">
         <div className="lg:col-span-7"><QuoteCard quote={pickDaily(QUOTES, "today-quote")} slot="today's quote" /></div>
         <div className="lg:col-span-5"><FactCard fact={pickDaily(FACTS, "today-fact")} slot="today's fact" /></div>

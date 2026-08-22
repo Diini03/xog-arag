@@ -12,6 +12,7 @@ import Explore from "@/pages/Explore";
 import LabPage, { LabsIndex } from "@/pages/Labs";
 import GamePage, { GamesIndex } from "@/pages/Games";
 import NewsArticle, { NewsIndex } from "@/pages/News";
+import Practice from "@/pages/Practice";
 import Saved from "@/pages/Saved";
 import About from "@/pages/About";
 import Login from "@/pages/Login";
@@ -40,6 +41,7 @@ const App = () => (
               <Route path="/game/:id" element={<GamePage />} />
               <Route path="/news" element={<NewsIndex />} />
               <Route path="/news/:id" element={<NewsArticle />} />
+              <Route path="/practice" element={<Practice />} />
               <Route path="/saved" element={<Saved />} />
               <Route path="/about" element={<About />} />
               <Route path="/login" element={<Login />} />

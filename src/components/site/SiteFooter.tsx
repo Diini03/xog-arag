@@ -26,6 +26,11 @@ export function SiteFooter() {
             A curiosity engine for data, AI and technology. Read a tip, try a lab, lose a game,
             leave knowing one specific thing you did not know before.
           </p>
+          <p className="mt-3 max-w-sm text-[13.5px] leading-relaxed text-muted-foreground">
+            A portfolio project built by Diini Kahiye to sharpen his own skills — every day it hands
+            him a fresh set of questions, a tip, a reminder and a small task, and the practice keeps
+            the fundamentals of data, ML and AI in working order.
+          </p>
         </div>
 
         <div>
@@ -54,6 +59,7 @@ export function SiteFooter() {
             ))}
           </ul>
           <ul className="mt-5 space-y-2">
+            <li><Link to="/practice" className="text-[13.5px] text-muted-foreground hover:text-primary">Daily practice</Link></li>
             <li><Link to="/about" className="text-[13.5px] text-muted-foreground hover:text-primary">About &amp; sources</Link></li>
             <li><Link to="/saved" className="text-[13.5px] text-muted-foreground hover:text-primary">Saved on this device</Link></li>
           </ul>
