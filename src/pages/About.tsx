@@ -23,6 +23,14 @@ const SECTIONS = [
     p: "Quotes are only attributed when a checkable public source exists; everything else is labelled an original XogArag thought rather than put in someone's mouth. News items always show publication, date and a link. Trend sections say 'recently discussed', because we do not have popularity data and will not invent it.",
   },
   {
+    h: "Why I built it",
+    p: "This is a portfolio project built by Diini Kahiye to strengthen his own knowledge. Every day it produces new questions, a tip, a short task and a reminder — practising in small daily doses is what keeps data, ML and AI fundamentals sharp, and building the platform itself was the second half of the exercise.",
+  },
+  {
+    h: "How the daily drop works",
+    p: "Once per UTC day a server-side model writes one focus topic, a short briefing, three multiple-choice questions, one tip with an example, one original line and one twenty-minute task. The result is cached in the database, so everyone sees the same drop for that day. Practice mode tracks your streak and accuracy in this browser.",
+  },
+  {
     h: "What is saved",
     p: "Bookmarks, game scores and recently viewed items live in this browser's local storage. Nothing is synced to an account today. The data shapes are designed so that backend persistence can be added without changing the interface.",
   },
