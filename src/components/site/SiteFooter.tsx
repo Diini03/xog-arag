@@ -59,6 +59,7 @@ export function SiteFooter() {
             ))}
           </ul>
           <ul className="mt-5 space-y-2">
+            <li><Link to="/practice" className="text-[13.5px] text-muted-foreground hover:text-primary">Daily practice</Link></li>
             <li><Link to="/about" className="text-[13.5px] text-muted-foreground hover:text-primary">About &amp; sources</Link></li>
             <li><Link to="/saved" className="text-[13.5px] text-muted-foreground hover:text-primary">Saved on this device</Link></li>
           </ul>
