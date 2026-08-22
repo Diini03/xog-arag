@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 
 const LINKS = [
   { to: "/today", label: "Today" },
+  { to: "/practice", label: "Practice" },
   { to: "/explore", label: "Explore" },
   { to: "/labs", label: "Labs" },
   { to: "/games", label: "Games" },
