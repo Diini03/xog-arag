@@ -12,6 +12,7 @@ import Explore from "@/pages/Explore";
 import LabPage, { LabsIndex } from "@/pages/Labs";
 import GamePage, { GamesIndex } from "@/pages/Games";
 import NewsArticle, { NewsIndex } from "@/pages/News";
+import Practice from "@/pages/Practice";
 import Saved from "@/pages/Saved";
 import About from "@/pages/About";
 import Login from "@/pages/Login";
