@@ -9,6 +9,7 @@ import { CHALLENGES, QUESTIONS } from "@/lib/content/questions";
 import { CURATED_NEWS } from "@/lib/content/news";
 import { GAMES, LABS } from "@/lib/content/catalog";
 import { pickDaily, todayKey } from "@/lib/daily";
+import { DailyDrop } from "@/components/site/DailyDrop";
 
 export default function Today() {
   const day = todayKey();
