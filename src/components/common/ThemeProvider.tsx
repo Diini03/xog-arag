@@ -6,8 +6,8 @@ const Ctx = createContext<ThemeCtx | undefined>(undefined);
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState<Theme>(() => {
-    if (typeof window === "undefined") return "dark";
-    return (localStorage.getItem("xogarag-theme") as Theme | null) ?? "dark";
+    if (typeof window === "undefined") return "light";
+    return (localStorage.getItem("xogarag-theme") as Theme | null) ?? "light";
   });
 
   useEffect(() => {

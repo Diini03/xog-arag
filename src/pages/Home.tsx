@@ -1,40 +1,43 @@
-import { BigStage, StageItem } from "@/components/site/BigStage";
-import { QUOTES } from "@/lib/content/quotes";
-import { TIPS } from "@/lib/content/tips";
-import { FACTS } from "@/lib/content/facts";
-import { QUESTIONS } from "@/lib/content/questions";
-
-const quotes: StageItem[] = QUOTES.map((q) => ({
-  id: q.id,
-  text: `“${q.text}”`,
-  meta: q.attributed ? q.author : `${q.author} — original`,
-}));
-
-const facts: StageItem[] = FACTS.map((f) => ({
-  id: f.id,
-  text: f.text,
-  meta: f.source?.publication ?? "did you know",
-}));
-
-const tips: StageItem[] = TIPS.map((t) => ({
-  id: t.id,
-  text: t.title,
-  meta: t.explanation,
-}));
-
-const questions: StageItem[] = QUESTIONS.map((q) => ({
-  id: q.id,
-  text: q.prompt,
-  meta: q.options.join("   ·   "),
-}));
+import { Link } from "react-router-dom";
+import { Shell, EndMark } from "@/components/log/Shell";
+import { EntryBlock } from "@/components/log/EntryCard";
+import { SORTED_ENTRIES } from "@/lib/log/entries";
 
 export default function Home() {
+  const entries = SORTED_ENTRIES;
   return (
-    <div className="h-dvh snap-y snap-mandatory overflow-y-auto overflow-x-hidden">
-      <BigStage label="Quote" items={quotes} tone="var(--quote)" size="xl" />
-      <BigStage label="Fact" items={facts} tone="var(--data)" size="lg" interval={9000} />
-      <BigStage label="Tip" items={tips} tone="var(--mint)" size="lg" interval={9000} />
-      <BigStage label="Question" items={questions} tone="var(--accent)" size="lg" interval={10000} />
-    </div>
+    <Shell>
+      <header className="mb-14 border-b border-rule pb-10">
+        <p className="meta">Xog-arag · Somali: one who has seen the record</p>
+        <h1 className="mt-4 font-display text-[clamp(2.2rem,6vw,3.6rem)] font-semibold leading-[1.02] text-balance">
+          A field log kept by a working analyst.
+        </h1>
+        <p className="mt-5 max-w-[60ch] text-[18.5px] leading-relaxed text-muted-foreground">
+          Quotes that stuck, notes worth keeping, and honest concerns about AI, data science and
+          machine learning — written from practice, in Mogadishu, with the uncertainty left in.
+        </p>
+        <div className="mt-7 flex flex-wrap gap-x-6 gap-y-2">
+          <Link className="meta text-primary underline underline-offset-4" to="/concerns">read the concerns</Link>
+          <Link className="meta hover:text-foreground" to="/data-diary">data diary</Link>
+          <Link className="meta hover:text-foreground" to="/about">first page</Link>
+        </div>
+      </header>
+
+      <div className="mb-6 flex items-baseline justify-between">
+        <h2 className="meta">current entries · newest first</h2>
+        <span className="meta">{entries.length} logged</span>
+      </div>
+
+      <div>
+        {entries.map((e, i) => (
+          <EntryBlock key={e.id} entry={e} index={i} />
+        ))}
+      </div>
+
+      <EndMark />
+      <p className="mt-4 text-center">
+        <Link className="meta text-primary underline underline-offset-4" to="/archive">full index →</Link>
+      </p>
+    </Shell>
   );
 }
