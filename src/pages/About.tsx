@@ -1,74 +1,64 @@
-import { Layout, PageIntro } from "@/components/site/Layout";
-import { Panel } from "@/components/site/cards";
+import { Shell, PageHead } from "@/components/log/Shell";
 
-const SECTIONS = [
-  {
-    h: "What XogArag is",
-    p: "A discovery platform for people who work with, or are curious about, data, AI and technology. It is built around short encounters: one tip, one experiment, one game, one sourced story — rather than long courses or dashboards.",
-  },
-  {
-    h: "Why it exists",
-    p: "Most learning material asks for a commitment before it gives you anything. XogArag inverts that: it gives you one specific, checkable thing in under a minute, and only then invites you deeper.",
-  },
-  {
-    h: "Who it is for",
-    p: "Analysts, students, engineers, and anyone who enjoys finding out that the mean is lying to them. No account is required to read, play, experiment or search.",
-  },
-  {
-    h: "How AI is used",
-    p: "AI can help draft structured content — tips, questions, concept explanations — against strict schemas that the interface renders through fixed components. A model never controls layout, never executes generated code, and never produces a factual news claim. API credentials stay server-side.",
-  },
-  {
-    h: "How sources are handled",
-    p: "Quotes are only attributed when a checkable public source exists; everything else is labelled an original XogArag thought rather than put in someone's mouth. News items always show publication, date and a link. Trend sections say 'recently discussed', because we do not have popularity data and will not invent it.",
-  },
-  {
-    h: "Why I built it",
-    p: "This is a portfolio project built by Diini Kahiye to strengthen his own knowledge. Every day it produces new questions, a tip, a short task and a reminder — practising in small daily doses is what keeps data, ML and AI fundamentals sharp, and building the platform itself was the second half of the exercise.",
-  },
-  {
-    h: "How the daily drop works",
-    p: "Once per UTC day a server-side model writes one focus topic, a short briefing, three multiple-choice questions, one tip with an example, one original line and one twenty-minute task. The result is cached in the database, so everyone sees the same drop for that day. Practice mode tracks your streak and accuracy in this browser.",
-  },
-  {
-    h: "What is saved",
-    p: "Bookmarks, game scores and recently viewed items live in this browser's local storage. Nothing is synced to an account today. The data shapes are designed so that backend persistence can be added without changing the interface.",
-  },
+const LINKS = [
+  { label: "portfolio", href: "https://www.diinikahiye.online/" },
+  { label: "github", href: "https://github.com/Diini03" },
+  { label: "linkedin", href: "https://www.linkedin.com/in/diinikahiye/" },
 ];
 
 export default function About() {
   return (
-    <Layout>
-      <PageIntro kicker="Colophon" title="About XogArag" lede="A curiosity engine for data, AI and technology — and an honest account of how it is built." />
-      <div className="grid gap-5 lg:grid-cols-2">
-        {SECTIONS.map((s) => (
-          <Panel key={s.h}>
-            <h2 className="font-display text-[19px] font-bold">{s.h}</h2>
-            <p className="mt-2 text-[14.5px] leading-relaxed text-muted-foreground">{s.p}</p>
-          </Panel>
-        ))}
+    <Shell>
+      <PageHead index="05 · first page" title="This notebook belongs to Diini Kahiye" />
+
+      <div className="max-w-[64ch] space-y-6 text-[17.5px] leading-[1.8]">
+        <p>
+          I am a data analyst working in Mogadishu. Xog-arag is Somali for something close to
+          <em> one who has seen the record</em> — a witness to the data. That is the job as I
+          understand it: look at the record carefully, then say plainly what is and is not there.
+        </p>
+        <p>
+          This is not a resume site. It is the notebook I would keep anyway, published. Quotes that
+          changed how I work, short notes written on the day they occurred to me, longer pieces on
+          what worries me about how AI and machine learning are being sold, and dated entries on the
+          projects I have actually shipped — including the parts that went badly.
+        </p>
+        <p>
+          Working here shapes the whole thing. Much of what the field publishes assumes dense,
+          digitised, English-first data and institutions that already measure themselves. I usually
+          have none of that. The gap between the textbook and the Somali data reality is not a
+          footnote in my practice; it is most of my practice, and it is the most interesting thing I
+          can write about.
+        </p>
+        <p>
+          Two rules for what goes in here. First, the uncertainty stays in — every longer piece
+          carries a marker saying whether it is speculative, observed in practice, or a view I am
+          still updating. Second, nothing is published to look authoritative. If I do not know, the
+          entry says so.
+        </p>
+        <p>
+          The log is added to in small doses rather than in bursts. That is also what keeps the
+          fundamentals sharp: writing one honest paragraph about a thing I half-understand is a more
+          reliable teacher than another course.
+        </p>
       </div>
 
-      <section className="mt-10 grid gap-5 lg:grid-cols-2">
-        <Panel tone="hsl(var(--data))">
-          <h2 className="font-display text-[19px] font-bold">Related projects</h2>
-          <ul className="mt-3 space-y-3 text-[14px]">
-            <li><span className="font-semibold">LearnData</span> — structured learning for Python, SQL, Excel, Power BI, ML and AI.</li>
-            <li><span className="font-semibold">NadiifiData</span> — clean and prepare datasets before analysis.</li>
-            <li><span className="font-semibold">ChartWorld</span> — explore and build data visualisations.</li>
-            <li><span className="font-semibold">XogArag</span> — discover, play, experiment and stay updated.</li>
-          </ul>
-        </Panel>
-        <Panel tone="hsl(var(--primary))">
-          <h2 className="font-display text-[19px] font-bold">Creator</h2>
-          <p className="mt-2 text-[14.5px] text-muted-foreground">Built by Diini Kahiye.</p>
-          <ul className="mt-3 space-y-2 text-[14px]">
-            <li><a className="underline decoration-dotted underline-offset-4 hover:text-primary" href="https://github.com/Diini03" target="_blank" rel="noreferrer noopener">GitHub</a></li>
-            <li><a className="underline decoration-dotted underline-offset-4 hover:text-primary" href="https://www.diinikahiye.online/" target="_blank" rel="noreferrer noopener">Portfolio</a></li>
-            <li><a className="underline decoration-dotted underline-offset-4 hover:text-primary" href="https://www.linkedin.com/in/diinikahiye/" target="_blank" rel="noreferrer noopener">LinkedIn</a></li>
-          </ul>
-        </Panel>
-      </section>
-    </Layout>
+      <div className="mt-12 border-t border-rule pt-6">
+        <p className="meta">elsewhere</p>
+        <div className="mt-3 flex flex-wrap gap-x-6 gap-y-2">
+          {LINKS.map((l) => (
+            <a
+              key={l.label}
+              href={l.href}
+              target="_blank"
+              rel="noreferrer noopener"
+              className="meta text-primary underline underline-offset-4"
+            >
+              {l.label}
+            </a>
+          ))}
+        </div>
+      </div>
+    </Shell>
   );
 }
