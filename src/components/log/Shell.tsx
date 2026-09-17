@@ -1,10 +1,12 @@
 import { ReactNode } from "react";
 import { Spine } from "@/components/log/Spine";
+import { QuickFind } from "@/components/log/QuickFind";
 
 export function Shell({ children }: { children: ReactNode }) {
   return (
     <div className="grain min-h-dvh">
       <Spine />
+      <QuickFind />
       <div className="lg:pl-[210px]">
         <main id="main" className="mx-auto w-full max-w-[900px] px-5 pb-24 pt-10 sm:px-10 lg:pt-16">
           {children}
