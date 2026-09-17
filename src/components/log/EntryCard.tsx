@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { Entry, TYPE_LABEL } from "@/lib/log/types";
 import { longDate, paragraphs, readTime } from "@/lib/log/format";
 import { cn } from "@/lib/utils";
@@ -84,10 +85,20 @@ function StatusStamp({ entry }: { entry: Entry }) {
   );
 }
 
-export function EntryBlock({ entry, index = 0 }: { entry: Entry; index?: number }) {
+export function EntryBlock({
+  entry,
+  index = 0,
+  standalone = false,
+}: {
+  entry: Entry;
+  index?: number;
+  standalone?: boolean;
+}) {
   const paras = paragraphs(entry.body);
   return (
-    <article className="group relative border-b border-rule py-10 lg:pl-0">
+    <article
+      className={cn("group relative py-10 lg:pl-0", !standalone && "border-b border-rule")}
+    >
       <Marginalia entry={entry} />
 
       {entry.type === "quote" && <QuoteCard entry={entry} i={index} />}
@@ -126,7 +137,14 @@ export function EntryBlock({ entry, index = 0 }: { entry: Entry; index?: number 
       )}
 
       <Tags tags={entry.tags} />
-      <p className="meta mt-3 lg:hidden">{longDate(entry.date)}</p>
+      <div className="mt-3 flex flex-wrap items-baseline gap-x-5 gap-y-1">
+        <p className="meta lg:hidden">{longDate(entry.date)}</p>
+        {!standalone && (
+          <Link to={`/entry/${entry.id}`} className="meta text-primary underline underline-offset-4">
+            permalink →
+          </Link>
+        )}
+      </div>
     </article>
   );
 }
