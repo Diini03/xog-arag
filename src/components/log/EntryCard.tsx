@@ -19,7 +19,13 @@ function Tags({ tags }: { tags: string[] }) {
   return (
     <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1">
       {tags.map((t) => (
-        <span key={t} className="meta">#{t.replace(/\s+/g, "-")}</span>
+        <Link
+          key={t}
+          to={`/tag/${t.toLowerCase().replace(/\s+/g, "-")}`}
+          className="meta hover:text-primary"
+        >
+          #{t.replace(/\s+/g, "-")}
+        </Link>
       ))}
     </div>
   );

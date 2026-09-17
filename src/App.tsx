@@ -12,6 +12,7 @@ import Concerns from "@/pages/Concerns";
 import DataDiary from "@/pages/DataDiary";
 import Archive from "@/pages/Archive";
 import EntryPage from "@/pages/EntryPage";
+import Tag from "@/pages/Tag";
 import About from "@/pages/About";
 import NotFound from "@/pages/NotFound";
 
@@ -34,6 +35,7 @@ const App = () => (
             <Route path="/data-diary" element={<DataDiary />} />
             <Route path="/archive" element={<Archive />} />
             <Route path="/entry/:id" element={<EntryPage />} />
+            <Route path="/tag/:tag" element={<Tag />} />
             <Route path="/about" element={<About />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
