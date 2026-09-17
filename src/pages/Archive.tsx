@@ -73,7 +73,7 @@ export default function Archive() {
       <ol>
         {list.map((e) => (
           <li key={e.id} className="border-b border-rule py-4">
-            <Link to={TYPE_PATH[e.type]} className="group flex flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-6">
+            <Link to={`/entry/${e.id}`} className="group flex flex-col gap-1 sm:flex-row sm:items-baseline sm:gap-6">
               <span className="meta shrink-0">{e.date}</span>
               <span className="meta w-[86px] shrink-0">{TYPE_LABEL[e.type]}</span>
               <span className="text-[17px] leading-snug group-hover:text-primary">
