@@ -37,21 +37,25 @@ function QuoteCard({ entry, i }: { entry: Entry; i: number }) {
     <button
       onClick={() => setFlipped((f) => !f)}
       className={cn(
-        "relative block w-full border border-rule-strong/60 bg-card px-6 py-7 text-left transition-transform duration-300 hover:rotate-0",
-        i % 2 === 0 ? "pin-rotate-a" : "pin-rotate-b",
+        "relative block w-full border border-foreground px-6 py-8 text-left transition-colors duration-200",
+        flipped ? "bg-background" : "invert-block",
       )}
       aria-expanded={flipped}
     >
-      <span className="absolute left-1/2 top-2 h-2 w-2 -translate-x-1/2 rounded-full bg-stamp" aria-hidden="true" />
+      <span className="absolute right-4 top-3 font-mono text-[10px] uppercase tracking-[0.2em] opacity-60">
+        {String(i + 1).padStart(2, "0")}
+      </span>
       {!flipped ? (
         <>
-          <p className="font-display text-[clamp(1.15rem,2.3vw,1.55rem)] leading-snug">
-            “{entry.body}”
+          <p className="font-display text-[clamp(1.3rem,2.9vw,1.9rem)] font-semibold leading-[1.15] tracking-tight">
+            {entry.body}
           </p>
-          <p className="meta mt-4 normal-case tracking-normal">
-            {entry.source ? `— ${entry.source}` : "— unattributed; mine"}
+          <p className="mt-5 font-mono text-[10.5px] uppercase tracking-[0.18em] opacity-70">
+            {entry.source ? entry.source : "unattributed · mine"}
           </p>
-          <p className="meta mt-3 text-primary">tap for the annotation</p>
+          <p className="mt-2 font-mono text-[10.5px] uppercase tracking-[0.18em] opacity-70">
+            tap for the annotation
+          </p>
         </>
       ) : (
         <>
@@ -63,12 +67,12 @@ function QuoteCard({ entry, i }: { entry: Entry; i: number }) {
               target="_blank"
               rel="noreferrer noopener"
               onClick={(e) => e.stopPropagation()}
-              className="meta mt-4 inline-block text-primary underline underline-offset-4"
+              className="meta link-draw mt-4 inline-block text-foreground"
             >
               source
             </a>
           )}
-          <p className="meta mt-3 text-muted-foreground">tap to flip back</p>
+          <p className="meta mt-3">tap to flip back</p>
         </>
       )}
     </button>
@@ -78,16 +82,14 @@ function QuoteCard({ entry, i }: { entry: Entry; i: number }) {
 function ConfidenceMark({ entry }: { entry: Entry }) {
   if (!entry.confidence) return null;
   return (
-    <span className="meta border border-stamp/60 px-2 py-0.5 text-stamp">[{entry.confidence}]</span>
+    <span className="meta invert-block px-2 py-1 text-background">{entry.confidence}</span>
   );
 }
 
 function StatusStamp({ entry }: { entry: Entry }) {
   if (!entry.status) return null;
   return (
-    <span className="meta -rotate-2 border border-rule-strong px-2 py-0.5 text-foreground/70">
-      {entry.status}
-    </span>
+    <span className="meta border border-foreground px-2 py-1 text-foreground">{entry.status}</span>
   );
 }
 
