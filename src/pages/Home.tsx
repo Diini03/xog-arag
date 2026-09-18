@@ -17,7 +17,7 @@ export default function Home() {
           machine learning — written from practice, in Mogadishu, with the uncertainty left in.
         </p>
         <div className="mt-7 flex flex-wrap gap-x-6 gap-y-2">
-          <Link className="meta text-primary underline underline-offset-4" to="/concerns">read the concerns</Link>
+          <Link className="meta text-foreground link-draw" to="/concerns">read the concerns</Link>
           <Link className="meta hover:text-foreground" to="/data-diary">data diary</Link>
           <Link className="meta hover:text-foreground" to="/about">first page</Link>
         </div>
@@ -36,7 +36,7 @@ export default function Home() {
 
       <EndMark />
       <p className="mt-4 text-center">
-        <Link className="meta text-primary underline underline-offset-4" to="/archive">full index →</Link>
+        <Link className="meta text-foreground link-draw" to="/archive">full index →</Link>
       </p>
     </Shell>
   );

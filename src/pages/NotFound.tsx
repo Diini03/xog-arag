@@ -14,7 +14,7 @@ export default function NotFound() {
           that exists.
         </p>
         <div className="mt-7 flex flex-wrap gap-x-6 gap-y-2">
-          <Link to="/" className="meta text-primary underline underline-offset-4">back to the log</Link>
+          <Link to="/" className="meta text-foreground link-draw">back to the log</Link>
           <Link to="/archive" className="meta hover:text-foreground">archive</Link>
         </div>
       </div>

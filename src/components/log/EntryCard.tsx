@@ -136,7 +136,7 @@ export function EntryBlock({
               href={entry.relatedProjectUrl}
               target="_blank"
               rel="noreferrer noopener"
-              className="meta mt-5 inline-block text-primary underline underline-offset-4"
+              className="meta mt-5 inline-block text-foreground link-draw"
             >
               repository →
             </a>
@@ -148,7 +148,7 @@ export function EntryBlock({
       <div className="mt-3 flex flex-wrap items-baseline gap-x-5 gap-y-1">
         <p className="meta lg:hidden">{longDate(entry.date)}</p>
         {!standalone && (
-          <Link to={`/entry/${entry.id}`} className="meta text-primary underline underline-offset-4">
+          <Link to={`/entry/${entry.id}`} className="meta text-foreground link-draw">
             permalink →
           </Link>
         )}
