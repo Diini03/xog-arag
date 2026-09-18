@@ -52,7 +52,7 @@ export default function About() {
               href={l.href}
               target="_blank"
               rel="noreferrer noopener"
-              className="meta text-primary underline underline-offset-4"
+              className="meta text-foreground link-draw"
             >
               {l.label}
             </a>

@@ -29,7 +29,7 @@ export default function Notes() {
             onClick={() => setFilter(f)}
             className={cn(
               "meta px-3 py-1.5 transition-colors",
-              filter === f ? "text-primary underline underline-offset-4" : "hover:text-foreground",
+              filter === f ? "invert-block px-2 py-1" : "px-2 py-1 hover:text-foreground",
             )}
           >
             {f}

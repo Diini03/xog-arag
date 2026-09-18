@@ -26,7 +26,7 @@ export default function EntryPage() {
         <p className="meta">no such entry</p>
         <h1 className="mt-3 font-display text-3xl font-semibold">This page was never logged.</h1>
         <p className="mt-4">
-          <Link className="meta text-primary underline underline-offset-4" to="/archive">
+          <Link className="meta text-foreground link-draw" to="/archive">
             back to the index →
           </Link>
         </p>

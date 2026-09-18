@@ -7,17 +7,17 @@ export default function Home() {
   const entries = SORTED_ENTRIES;
   return (
     <Shell>
-      <header className="mb-14 border-b border-rule pb-10">
+      <header className="mb-14 border-b border-foreground pb-10">
         <p className="meta">Xog-arag · Somali: one who has seen the record</p>
-        <h1 className="mt-4 font-display text-[clamp(2.2rem,6vw,3.6rem)] font-semibold leading-[1.02] text-balance">
-          A field log kept by a working analyst.
+        <h1 className="mt-5 font-display text-[clamp(2.6rem,8vw,5rem)] font-bold leading-[0.95] tracking-[-0.04em] text-balance">
+          A field log kept<br />by a working analyst.
         </h1>
-        <p className="mt-5 max-w-[60ch] text-[18.5px] leading-relaxed text-muted-foreground">
+        <p className="mt-6 max-w-[58ch] text-[18px] leading-relaxed text-muted-foreground">
           Quotes that stuck, notes worth keeping, and honest concerns about AI, data science and
           machine learning — written from practice, in Mogadishu, with the uncertainty left in.
         </p>
         <div className="mt-7 flex flex-wrap gap-x-6 gap-y-2">
-          <Link className="meta text-primary underline underline-offset-4" to="/concerns">read the concerns</Link>
+          <Link className="meta text-foreground link-draw" to="/concerns">read the concerns</Link>
           <Link className="meta hover:text-foreground" to="/data-diary">data diary</Link>
           <Link className="meta hover:text-foreground" to="/about">first page</Link>
         </div>
@@ -36,7 +36,7 @@ export default function Home() {
 
       <EndMark />
       <p className="mt-4 text-center">
-        <Link className="meta text-primary underline underline-offset-4" to="/archive">full index →</Link>
+        <Link className="meta text-foreground link-draw" to="/archive">full index →</Link>
       </p>
     </Shell>
   );
