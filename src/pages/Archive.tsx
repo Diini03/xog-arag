@@ -45,7 +45,7 @@ export default function Archive() {
             <button
               key={t}
               onClick={() => setType(t)}
-              className={cn("meta", type === t ? "text-foreground link-draw" : "hover:text-foreground")}
+              className={cn("meta", type === t ? "invert-block px-2 py-1" : "px-2 py-1 hover:text-foreground")}
             >
               {t === "all" ? "all types" : TYPE_LABEL[t]}
             </button>
@@ -54,7 +54,7 @@ export default function Archive() {
         <div className="flex flex-wrap gap-x-4 gap-y-1">
           <button
             onClick={() => setTag("all")}
-            className={cn("meta", tag === "all" ? "text-foreground link-draw" : "hover:text-foreground")}
+            className={cn("meta", tag === "all" ? "invert-block px-2 py-1" : "px-2 py-1 hover:text-foreground")}
           >
             all tags
           </button>
@@ -62,7 +62,7 @@ export default function Archive() {
             <button
               key={t}
               onClick={() => setTag(t)}
-              className={cn("meta", tag === t ? "text-foreground link-draw" : "hover:text-foreground")}
+              className={cn("meta", tag === t ? "invert-block px-2 py-1" : "px-2 py-1 hover:text-foreground")}
             >
               #{t.replace(/\s+/g, "-")}
             </button>
