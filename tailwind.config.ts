@@ -8,9 +8,9 @@ export default {
     container: { center: true, padding: "1.5rem", screens: { "2xl": "1180px" } },
     extend: {
       fontFamily: {
-        sans: ["Newsreader", "Georgia", "serif"],
-        serif: ["Newsreader", "Georgia", "serif"],
-        display: ["Fraunces", "Georgia", "serif"],
+        sans: ["Inter Tight", "system-ui", "sans-serif"],
+        serif: ["Inter Tight", "system-ui", "sans-serif"],
+        display: ["Bricolage Grotesque", "Inter Tight", "sans-serif"],
         mono: ["JetBrains Mono", "ui-monospace", "monospace"],
       },
       colors: {

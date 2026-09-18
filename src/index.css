@@ -3,73 +3,73 @@
 @tailwind utilities;
 
 @layer base {
-  /* Xog-arag — the field log. Paper & ink, one ochre accent. */
+  /* Xog-arag — monochrome. Pure white, pure black, nothing else. */
   :root {
-    --background: 41 39% 94%;          /* #F5F1E8 warm paper */
-    --foreground: 40 9% 6%;            /* #12110F ink */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 0%;
 
-    --card: 42 44% 96%;
-    --card-foreground: 40 9% 6%;
-    --popover: 42 44% 97%;
-    --popover-foreground: 40 9% 6%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 0%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 0%;
 
-    --primary: 26 64% 48%;             /* #C7702C ochre */
-    --primary-foreground: 41 39% 96%;
+    --primary: 0 0% 0%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 40 22% 88%;
-    --secondary-foreground: 40 9% 10%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 0%;
 
-    --muted: 40 20% 89%;
-    --muted-foreground: 38 8% 38%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 42%;
 
-    --accent: 26 64% 48%;
-    --accent-foreground: 41 39% 96%;
+    --accent: 0 0% 94%;
+    --accent-foreground: 0 0% 0%;
 
-    --destructive: 8 62% 42%;
-    --destructive-foreground: 41 39% 96%;
+    --destructive: 0 0% 0%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 38 16% 79%;
-    --input: 38 16% 79%;
-    --ring: 26 64% 48%;
+    --border: 0 0% 88%;
+    --input: 0 0% 88%;
+    --ring: 0 0% 0%;
 
-    --rule: 38 16% 80%;                /* hairline seams */
-    --rule-strong: 38 14% 62%;
-    --stamp: 26 64% 48%;
+    --rule: 0 0% 90%;
+    --rule-strong: 0 0% 0%;
+    --stamp: 0 0% 0%;
 
-    --radius: 0.125rem;
+    --radius: 0rem;
   }
 
   .dark {
-    --background: 40 9% 6%;
-    --foreground: 41 26% 88%;
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
 
-    --card: 38 8% 9%;
-    --card-foreground: 41 26% 88%;
-    --popover: 38 8% 9%;
-    --popover-foreground: 41 26% 88%;
+    --card: 0 0% 0%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 0%;
+    --popover-foreground: 0 0% 100%;
 
-    --primary: 27 62% 55%;
-    --primary-foreground: 40 9% 6%;
+    --primary: 0 0% 100%;
+    --primary-foreground: 0 0% 0%;
 
-    --secondary: 38 7% 14%;
-    --secondary-foreground: 41 26% 88%;
+    --secondary: 0 0% 9%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted: 38 7% 13%;
-    --muted-foreground: 40 8% 58%;
+    --muted: 0 0% 9%;
+    --muted-foreground: 0 0% 62%;
 
-    --accent: 27 62% 55%;
-    --accent-foreground: 40 9% 6%;
+    --accent: 0 0% 12%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 8 62% 52%;
-    --destructive-foreground: 41 26% 92%;
+    --destructive: 0 0% 100%;
+    --destructive-foreground: 0 0% 0%;
 
-    --border: 38 8% 19%;
-    --input: 38 8% 19%;
-    --ring: 27 62% 55%;
+    --border: 0 0% 16%;
+    --input: 0 0% 16%;
+    --ring: 0 0% 100%;
 
-    --rule: 38 8% 18%;
-    --rule-strong: 38 8% 30%;
-    --stamp: 27 62% 55%;
+    --rule: 0 0% 15%;
+    --rule-strong: 0 0% 100%;
+    --stamp: 0 0% 100%;
   }
 }
 
@@ -78,43 +78,60 @@
   html { -webkit-tap-highlight-color: transparent; }
   body {
     @apply bg-background text-foreground antialiased;
-    font-family: 'Newsreader', Georgia, serif;
-    font-size: 17px;
-    line-height: 1.7;
+    font-family: 'Inter Tight', system-ui, sans-serif;
+    font-size: 16.5px;
+    line-height: 1.65;
+    letter-spacing: -0.005em;
   }
   h1, h2, h3, h4, .font-display {
-    font-family: 'Fraunces', Georgia, serif;
+    font-family: 'Bricolage Grotesque', 'Inter Tight', sans-serif;
     font-weight: 600;
-    letter-spacing: -0.015em;
+    letter-spacing: -0.03em;
   }
-  ::selection { background: hsl(var(--primary) / 0.22); }
-  :focus-visible { outline: 1px solid hsl(var(--ring)); outline-offset: 3px; }
+  ::selection { background: hsl(var(--foreground)); color: hsl(var(--background)); }
+  :focus-visible { outline: 2px solid hsl(var(--ring)); outline-offset: 2px; }
 }
 
 @layer utilities {
   .font-mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
 
-  /* Paper grain, 3–4% opacity */
-  .grain::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    z-index: 60;
-    opacity: 0.035;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
+  /* grain retired — the monochrome system is flat and printed-clean */
+  .grain::before { content: none; }
 
   .meta {
-    @apply font-mono text-[10.5px] uppercase tracking-[0.16em] text-muted-foreground;
+    @apply font-mono text-[10.5px] uppercase tracking-[0.18em] text-muted-foreground;
   }
   .rule { border-color: hsl(var(--rule)); }
+
+  /* Signature move: a block that inverts to solid ink on hover. */
+  .invert-hover {
+    transition: background-color 180ms ease, color 180ms ease;
+  }
+  .invert-hover:hover {
+    background-color: hsl(var(--foreground));
+    color: hsl(var(--background));
+  }
+  .invert-block {
+    background-color: hsl(var(--foreground));
+    color: hsl(var(--background));
+  }
+
+  /* Underline that draws itself, instead of a coloured link. */
+  .link-draw {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1px;
+    background-repeat: no-repeat;
+    background-position: 0 100%;
+    transition: background-size 220ms cubic-bezier(0.2, 0.8, 0.2, 1);
+  }
+  .link-draw:hover { background-size: 100% 1px; }
+
   .ruled-page {
-    background-image: linear-gradient(hsl(var(--rule) / 0.6) 1px, transparent 1px);
+    background-image: linear-gradient(hsl(var(--rule)) 1px, transparent 1px);
     background-size: 100% 2rem;
   }
-  .pin-rotate-a { transform: rotate(-1.1deg); }
-  .pin-rotate-b { transform: rotate(0.9deg); }
+  .pin-rotate-a { transform: none; }
+  .pin-rotate-b { transform: none; }
   .text-balance { text-wrap: balance; }
 }
 
