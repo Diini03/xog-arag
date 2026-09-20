@@ -2,7 +2,29 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Entry, TYPE_LABEL } from "@/lib/log/types";
 import { longDate, paragraphs, readTime } from "@/lib/log/format";
+import { useBookmarks } from "@/lib/local";
 import { cn } from "@/lib/utils";
+
+function KeepButton({ entry }: { entry: Entry }) {
+  const { has, toggle } = useBookmarks();
+  const kept = has(entry.id);
+  return (
+    <button
+      onClick={() =>
+        toggle({
+          id: entry.id,
+          kind: entry.type,
+          title: entry.title ?? entry.body.slice(0, 60),
+          href: `/entry/${entry.id}`,
+        })
+      }
+      aria-pressed={kept}
+      className={cn("meta transition-colors", kept ? "invert-block px-2 py-1" : "hover:text-foreground")}
+    >
+      {kept ? "kept ✓" : "keep"}
+    </button>
+  );
+}
 
 function Marginalia({ entry }: { entry: Entry }) {
   return (
@@ -152,6 +174,7 @@ export function EntryBlock({
             permalink →
           </Link>
         )}
+        <KeepButton entry={entry} />
       </div>
     </article>
   );

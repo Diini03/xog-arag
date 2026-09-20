@@ -11,6 +11,7 @@ const SECTIONS = [
   { to: "/data-diary", label: "data diary", index: "04" },
   { to: "/about", label: "about", index: "05" },
   { to: "/archive", label: "archive", index: "06" },
+  { to: "/kept", label: "kept", index: "07" },
 ];
 
 function InkMark() {
