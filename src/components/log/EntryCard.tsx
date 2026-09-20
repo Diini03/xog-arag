@@ -174,6 +174,7 @@ export function EntryBlock({
             permalink →
           </Link>
         )}
+        <KeepButton entry={entry} />
       </div>
     </article>
   );
