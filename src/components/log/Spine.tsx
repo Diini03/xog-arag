@@ -61,7 +61,6 @@ export function Spine() {
                 isActive ? "invert-block" : "text-muted-foreground hover:text-foreground",
               )
             }
-            aria-current={undefined}
           >
             {({ isActive }) => (
               <>
