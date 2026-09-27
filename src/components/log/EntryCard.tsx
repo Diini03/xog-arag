@@ -28,23 +28,28 @@ function KeepButton({ entry }: { entry: Entry }) {
 
 function Marginalia({ entry }: { entry: Entry }) {
   return (
-    <div className="mb-2 shrink-0 lg:absolute lg:-left-[190px] lg:top-1 lg:mb-0 lg:w-[165px] lg:text-right lg:opacity-45 lg:transition-opacity lg:duration-300 lg:group-hover:opacity-100 lg:group-focus-within:opacity-100">
-      <div className="meta">logged {entry.date}</div>
-      <div className="meta mt-1">{TYPE_LABEL[entry.type]}</div>
-      {entry.tags[0] && <div className="meta mt-1">tag: {entry.tags[0]}</div>}
-      <div className="meta mt-1">{readTime(entry.body)} min read</div>
+    <div className="mb-3 shrink-0 lg:absolute lg:-left-[190px] lg:top-10 lg:mb-0 lg:w-[165px] lg:border-r lg:border-foreground lg:pr-4 lg:text-right">
+      <div className="font-mono text-[10.5px] uppercase tracking-[0.16em] text-foreground">{longDate(entry.date)}</div>
+      <div className="meta mt-1">{TYPE_LABEL[entry.type]} · {readTime(entry.body)} min</div>
+      <div className="mt-2 hidden flex-col gap-0.5 lg:flex">
+        {entry.tags.slice(0, 3).map((t) => (
+          <Link key={t} to={`/tag/${t.toLowerCase().replace(/\s+/g, "-")}`} className="meta hover:text-foreground">
+            #{t.replace(/\s+/g, "-")}
+          </Link>
+        ))}
+      </div>
     </div>
   );
 }
 
 function Tags({ tags }: { tags: string[] }) {
   return (
-    <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1">
+    <div className="mt-4 flex flex-wrap gap-x-4 gap-y-1 lg:hidden">
       {tags.map((t) => (
         <Link
           key={t}
           to={`/tag/${t.toLowerCase().replace(/\s+/g, "-")}`}
-          className="meta hover:text-primary"
+          className="meta hover:text-foreground"
         >
           #{t.replace(/\s+/g, "-")}
         </Link>
@@ -55,12 +60,14 @@ function Tags({ tags }: { tags: string[] }) {
 
 function QuoteCard({ entry, i }: { entry: Entry; i: number }) {
   const [flipped, setFlipped] = useState(false);
+  const narrow = i % 2 === 1;
   return (
     <button
       onClick={() => setFlipped((f) => !f)}
       className={cn(
-        "relative block w-full border border-foreground px-6 py-8 text-left transition-colors duration-200",
-        flipped ? "bg-background" : "invert-block",
+        "group/q relative block border border-foreground px-6 py-8 text-left transition-colors duration-200",
+        narrow ? "w-full sm:ml-auto sm:w-[78%]" : "w-full",
+        flipped ? "bg-background text-foreground" : "invert-block dark:outline dark:outline-1 dark:outline-offset-4 dark:outline-foreground/40",
       )}
       aria-expanded={flipped}
     >
@@ -69,13 +76,16 @@ function QuoteCard({ entry, i }: { entry: Entry; i: number }) {
       </span>
       {!flipped ? (
         <>
-          <p className="font-display text-[clamp(1.3rem,2.9vw,1.9rem)] font-semibold leading-[1.15] tracking-tight">
+          <p className={cn(
+            "font-display font-semibold leading-[1.12] tracking-tight",
+            narrow ? "text-[clamp(1.2rem,2.4vw,1.6rem)]" : "text-[clamp(1.45rem,3.3vw,2.2rem)]",
+          )}>
             {entry.body}
           </p>
           <p className="mt-5 font-mono text-[10.5px] uppercase tracking-[0.18em] opacity-70">
             {entry.source ? entry.source : "unattributed · mine"}
           </p>
-          <p className="mt-2 font-mono text-[10.5px] uppercase tracking-[0.18em] opacity-70">
+          <p className="mt-2 font-mono text-[10.5px] uppercase tracking-[0.18em] opacity-0 transition-opacity group-hover/q:opacity-70 group-focus-visible/q:opacity-70">
             tap for the annotation
           </p>
         </>
