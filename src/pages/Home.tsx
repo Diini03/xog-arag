@@ -2,9 +2,11 @@ import { Link } from "react-router-dom";
 import { Shell, EndMark } from "@/components/log/Shell";
 import { EntryBlock } from "@/components/log/EntryCard";
 import { SORTED_ENTRIES } from "@/lib/log/entries";
+import { useRecentlyViewed } from "@/lib/local";
 
 export default function Home() {
   const entries = SORTED_ENTRIES;
+  const { items: recent } = useRecentlyViewed();
   return (
     <Shell>
       <header className="mb-14 border-b border-foreground pb-10">
@@ -22,6 +24,21 @@ export default function Home() {
           <Link className="meta hover:text-foreground" to="/about">first page</Link>
         </div>
       </header>
+
+      {recent.length > 0 && (
+        <section className="mb-12 border-b border-rule pb-8">
+          <h2 className="meta mb-4">recently read — pick up where you left off</h2>
+          <ul className="flex flex-wrap gap-x-6 gap-y-2">
+            {recent.slice(0, 6).map((r) => (
+              <li key={r.href}>
+                <Link to={r.href} className="meta text-foreground link-draw">
+                  {r.title.length > 48 ? r.title.slice(0, 48) + "…" : r.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
 
       <div className="mb-6 flex items-baseline justify-between">
         <h2 className="meta">current entries · newest first</h2>
