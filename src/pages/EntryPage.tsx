@@ -75,27 +75,23 @@ export default function EntryPage() {
         </section>
       )}
 
-      <nav className="mt-14 flex flex-col gap-6 border-t border-rule pt-6 sm:flex-row sm:justify-between">
-        <div className="max-w-[28ch]">
-          {older && (
-            <Link to={`/entry/${older.id}`} className="group block">
-              <span className="meta">← earlier entry</span>
-              <span className="mt-1 block text-[16px] leading-snug group-hover:text-primary">
-                {older.title || older.body.slice(0, 70) + "…"}
-              </span>
-            </Link>
-          )}
-        </div>
-        <div className="max-w-[28ch] sm:text-right">
-          {newer && (
-            <Link to={`/entry/${newer.id}`} className="group block">
-              <span className="meta">later entry →</span>
-              <span className="mt-1 block text-[16px] leading-snug group-hover:text-primary">
-                {newer.title || newer.body.slice(0, 70) + "…"}
-              </span>
-            </Link>
-          )}
-        </div>
+      <nav className="mt-14 grid grid-cols-1 border-y border-foreground sm:grid-cols-2">
+        {older ? (
+          <Link to={`/entry/${older.id}`} className="group block p-6 transition-colors hover:bg-foreground hover:text-background sm:border-r sm:border-foreground">
+            <span className="font-mono text-[10.5px] uppercase tracking-[0.18em] opacity-70">← earlier entry</span>
+            <span className="mt-2 block font-display text-[19px] font-semibold leading-snug">
+              {older.title || older.body.slice(0, 70) + "…"}
+            </span>
+          </Link>
+        ) : <div className="hidden p-6 sm:block sm:border-r sm:border-foreground"><span className="meta">first entry in the log</span></div>}
+        {newer ? (
+          <Link to={`/entry/${newer.id}`} className="group block border-t border-foreground p-6 transition-colors hover:bg-foreground hover:text-background sm:border-t-0 sm:text-right">
+            <span className="font-mono text-[10.5px] uppercase tracking-[0.18em] opacity-70">later entry →</span>
+            <span className="mt-2 block font-display text-[19px] font-semibold leading-snug">
+              {newer.title || newer.body.slice(0, 70) + "…"}
+            </span>
+          </Link>
+        ) : <div className="hidden p-6 sm:block sm:text-right"><span className="meta">latest entry</span></div>}
       </nav>
     </Shell>
   );

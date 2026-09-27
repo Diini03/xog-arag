@@ -57,13 +57,18 @@ export function Spine() {
             end={s.to === "/"}
             className={({ isActive }) =>
               cn(
-                "group flex items-baseline gap-2 font-mono text-[11.5px] uppercase tracking-[0.16em] transition-colors",
-                isActive ? "text-primary" : "text-muted-foreground hover:text-foreground",
+                "group relative -mx-2 flex items-baseline gap-2 px-2 py-0.5 font-mono text-[11.5px] uppercase tracking-[0.16em] transition-colors",
+                isActive ? "invert-block" : "text-muted-foreground hover:text-foreground",
               )
             }
           >
-            <span className="text-[9.5px] opacity-50">{s.index}</span>
-            <span>{s.label}</span>
+            {({ isActive }) => (
+              <>
+                <span className="text-[9.5px] opacity-60">{s.index}</span>
+                <span>{s.label}</span>
+                {isActive && <span className="ml-auto" aria-hidden>←</span>}
+              </>
+            )}
           </NavLink>
         </li>
       ))}
