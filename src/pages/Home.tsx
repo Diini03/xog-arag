@@ -2,9 +2,11 @@ import { Link } from "react-router-dom";
 import { Shell, EndMark } from "@/components/log/Shell";
 import { EntryBlock } from "@/components/log/EntryCard";
 import { SORTED_ENTRIES } from "@/lib/log/entries";
+import { useRecentlyViewed } from "@/lib/local";
 
 export default function Home() {
   const entries = SORTED_ENTRIES;
+  const { items: recent } = useRecentlyViewed();
   return (
     <Shell>
       <header className="mb-14 border-b border-foreground pb-10">

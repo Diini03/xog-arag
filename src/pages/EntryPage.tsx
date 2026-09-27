@@ -5,16 +5,19 @@ import { SORTED_ENTRIES } from "@/lib/log/entries";
 import { longDate } from "@/lib/log/format";
 import { TYPE_LABEL, TYPE_PATH } from "@/lib/log/types";
 import { useEffect } from "react";
+import { useRecentlyViewed } from "@/lib/local";
 
 export default function EntryPage() {
   const { id } = useParams();
   const index = SORTED_ENTRIES.findIndex((e) => e.id === id);
   const entry = index >= 0 ? SORTED_ENTRIES[index] : undefined;
+  const { push } = useRecentlyViewed();
 
   useEffect(() => {
     if (!entry) return;
     const label = entry.title || entry.body.slice(0, 60);
     document.title = `${label} — Xog-arag`;
+    push(label, `/entry/${entry.id}`);
     return () => {
       document.title = "Xog-arag — a data analyst's field log";
     };
