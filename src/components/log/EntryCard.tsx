@@ -28,7 +28,7 @@ function KeepButton({ entry }: { entry: Entry }) {
 
 function Marginalia({ entry }: { entry: Entry }) {
   return (
-    <div className="mb-3 shrink-0 lg:absolute lg:-left-[190px] lg:top-10 lg:mb-0 lg:w-[165px] lg:border-r lg:border-foreground lg:pr-4 lg:text-right">
+    <div className="mb-3 shrink-0 lg:absolute lg:-left-[170px] lg:top-10 lg:mb-0 lg:w-[145px] lg:border-r lg:border-foreground lg:pr-4 lg:text-right">
       <div className="font-mono text-[10.5px] uppercase tracking-[0.16em] text-foreground">{longDate(entry.date)}</div>
       <div className="meta mt-1">{TYPE_LABEL[entry.type]} · {readTime(entry.body)} min</div>
       <div className="mt-2 hidden flex-col gap-0.5 lg:flex">
