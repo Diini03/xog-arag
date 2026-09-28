@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { cn } from "@/lib/utils";
 import { useTheme } from "@/components/common/ThemeProvider";
+import { Button } from "@/components/ui/button";
+import { openFirstVisitGuide } from "@/components/log/FirstVisitGuide";
 
 const SECTIONS = [
   { to: "/", label: "log", index: "00" },
@@ -92,6 +94,9 @@ export function Spine() {
         </div>
         <div className="space-y-3">
           <div className="h-px w-full bg-rule" />
+          <Button variant="ghost" size="sm" onClick={openFirstVisitGuide} className="meta h-auto justify-start px-0 py-0 hover:bg-transparent hover:text-foreground">
+            guide
+          </Button>
           <ThemeSwitch />
           <div className="meta leading-relaxed normal-case tracking-normal">
             Diini Kahiye<br />Mogadishu
@@ -118,6 +123,9 @@ export function Spine() {
           <div className="border-t border-rule px-5 py-4">
             {list}
             <div className="mt-4 border-t border-rule pt-3">
+              <Button variant="ghost" size="sm" onClick={openFirstVisitGuide} className="meta mr-5 h-auto px-0 py-0 hover:bg-transparent hover:text-foreground">
+                guide
+              </Button>
               <ThemeSwitch />
             </div>
           </div>
