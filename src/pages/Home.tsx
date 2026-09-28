@@ -33,7 +33,7 @@ export default function Home() {
               <li key={r.href} className="bg-background">
                 <Link to={r.href} className="group block h-full p-4 transition-colors hover:bg-foreground hover:text-background">
                   <span className="font-mono text-[10px] uppercase tracking-[0.18em] opacity-60">
-                    {String(i + 1).padStart(2, "0")} · {r.kind}
+                    {String(i + 1).padStart(2, "0")} · {new Date(r.at).toLocaleDateString("en-GB", { day: "numeric", month: "short" })}
                   </span>
                   <span className="mt-2 block text-[15px] font-medium leading-snug">
                     {r.title.length > 70 ? r.title.slice(0, 70) + "…" : r.title}
