@@ -64,7 +64,7 @@ export default function EntryPage() {
             {related.map((r) => (
               <li key={r.id}>
                 <Link to={`/entry/${r.id}`} className="group block">
-                  <span className="meta">{r.date} · {TYPE_LABEL[r.type]}</span>
+                  <span className="meta">{longDate(r.date)} · {TYPE_LABEL[r.type]}</span>
                   <span className="mt-1 block max-w-[60ch] text-[16.5px] leading-snug group-hover:text-primary">
                     {r.title || r.body.slice(0, 110) + (r.body.length > 110 ? "…" : "")}
                   </span>

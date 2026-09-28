@@ -28,9 +28,9 @@ export default function Home() {
       {recent.length > 0 && (
         <section className="mb-12 border-b border-rule pb-8">
           <h2 className="meta mb-4">recently read — pick up where you left off</h2>
-          <ol className="grid gap-px border border-rule bg-rule sm:grid-cols-3">
+          <ol className="grid border-l border-t border-rule sm:grid-cols-3">
             {recent.slice(0, 3).map((r, i) => (
-              <li key={r.href} className="bg-background">
+              <li key={r.href} className="border-b border-r border-rule">
                 <Link to={r.href} className="group block h-full p-4 transition-colors hover:bg-foreground hover:text-background">
                   <span className="font-mono text-[10px] uppercase tracking-[0.18em] opacity-60">
                     {String(i + 1).padStart(2, "0")} · {new Date(r.at).toLocaleDateString("en-GB", { day: "numeric", month: "short" })}
